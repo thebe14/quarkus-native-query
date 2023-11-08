@@ -2,7 +2,7 @@
 <project version="4">
   <component name="CompilerConfiguration">
     <annotationProcessing>
-      <profile name="Annotation profile for quarkus-bug-reproducer" enabled="true">
+      <profile name="Annotation profile for quarkus-reproducer" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
@@ -55,7 +55,7 @@
           <entry name="$MAVEN_REPOSITORY$/org/apiguardian/apiguardian-api/1.1.2/apiguardian-api-1.1.2.jar" />
           <entry name="$MAVEN_REPOSITORY$/io/quarkus/quarkus-bom/3.4.2/quarkus-bom-3.4.2.pom" />
         </processorPath>
-        <module name="quarkus-bug-reproducer" />
+        <module name="quarkus-reproducer" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -64,7 +64,7 @@
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="quarkus-bug-reproducer" options="-parameters" />
+      <module name="quarkus-reproducer" options="-parameters" />
       <module name="test" options="-parameters" />
     </option>
   </component>
