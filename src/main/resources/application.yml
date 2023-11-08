@@ -1,0 +1,60 @@
+---
+quarkus:
+  application:
+    name: quarkus-bug-reproducer
+  log:
+    level: INFO
+    min-level: DEBUG
+    console:
+      enable: true
+      format: "%d{HH:mm:ss} %-5p traceId=%X{traceId}, spanId=%X{spanId}, sampled=%X{sampled} [%c{2.}] (%t) %s%e%n"
+      json:
+        ~: false
+  swagger-ui:
+    always-include: true
+    path: /swagger-ui
+    theme: flattop
+  smallrye-openapi:
+    path: /openapi
+    info-version: 1.0.0
+  jackson:
+    fail-on-unknown-properties: false
+  http:
+    port: 8090
+  test:
+    continuous-testing: disabled
+  keycloak:
+    devservices:
+      enabled: false
+  datasource:
+    db-kind: postgresql
+    reactive:
+      url: postgresql://localhost:5432/postgres
+      additional-properties:
+        search_path: test # Default schema
+    username: ims
+    password: password
+    devservices:
+      enabled: false
+  hibernate-orm:
+    log:
+      sql: true
+      bind-parameters: false
+      queries-slower-than-ms: 10
+    metrics:
+      enabled: false
+
+"%dev":
+  quarkus:
+    hibernate-orm:
+      sql-load-script: import.sql
+      database:
+        generation: drop-and-create
+
+"%prod":
+  quarkus:
+    hibernate-orm:
+      database:
+        generation: none
+      log:
+        sql: false
